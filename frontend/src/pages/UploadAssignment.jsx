@@ -19,6 +19,11 @@ const UploadAssignment = () => {
     setError('');
     setSuccess('');
 
+    if (!file) {
+      setError('Please select a file to upload.');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('assignmentFile', file); // This must match 'assignmentFile' in the backend
 

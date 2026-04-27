@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
@@ -16,6 +17,11 @@ const cors = require('cors');
 const app = express();
 
 dotenv.config();
+
+if (!process.env.JWT_SECRET || process.env.JWT_SECRET.trim() === '') {
+  console.warn('WARNING: JWT_SECRET is not set. Using a default development secret. Set JWT_SECRET in backend/.env before deploying.');
+  process.env.JWT_SECRET = 'education_project_development_secret';
+}
 
 const defaultAllowedOrigins = [
   'http://localhost:3000',
@@ -56,6 +62,7 @@ app.use('/api/analytics', analyticsRoutes);
 app.use('/api/assignments', assignmentRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/student', studentRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/', (req, res) => {
   res.send('API is running...');

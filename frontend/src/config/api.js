@@ -3,9 +3,9 @@ const trimTrailingSlash = (url) => String(url || '').replace(/\/+$/, '');
 const DEFAULT_API = 'https://education-managment.onrender.com';
 
 /**
- * In development, use same-origin URLs like `/api/...` so Create React App's
- * package.json `proxy` can forward them to the API — avoids browser CORS.
- * Set REACT_APP_API_URL to override (e.g. http://localhost:5000 for a local API).
+ * In development, use same-origin `/api/...` URLs so Create React App proxy
+ * can forward requests to the local backend defined in package.json `proxy`.
+ * Set REACT_APP_API_URL to override with an explicit backend URL.
  */
 function getApiBase() {
   const fromEnv = process.env.REACT_APP_API_URL;
