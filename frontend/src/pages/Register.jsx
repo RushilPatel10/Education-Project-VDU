@@ -51,11 +51,11 @@ const Register = () => {
         <div className="auth-form flex items-center justify-center grow flex-col min-h-screen bg-cover relative p-6 bg-theme-cardbg dark:bg-themedark-cardbg">
           <div className="card sm:my-12 w-full max-w-[480px] border-none shadow-none">
             <div className="card-body sm:!p-10">
-              <div className="text-center mb-5">
+              {/* <div className="text-center mb-5">
                 <a href="/register">
                   <img src="../assets/images/logo-dark.svg" alt="img" className="mx-auto" />
                 </a>
-              </div>
+              </div> */}
               <h4 className="text-center font-medium mb-4">Sign up with your work email.</h4>
               {error && <div className="alert alert-danger">{error}</div>} {/* Display error message */}
               
